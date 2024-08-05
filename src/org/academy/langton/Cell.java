@@ -1,28 +1,24 @@
 package org.academy.langton;
 
 public class Cell {
-    private String colour;
+    private CellColour colour;
     private final GridPosition gridPosition;
 
     public Cell(int x, int y){
         gridPosition = new GridPosition(x, y);
-        colour = "white";
+        colour = CellColour.WHITE;
     }
 
-    public String toggleColour(){
+    public CellColour toggleColour(){
         switch (colour) {
-            case "white" -> colour = "black";
-            case "black" -> colour = "red";
-            case "red" -> colour = "white";
+            case CellColour.WHITE -> colour = CellColour.BLACK;
+            case CellColour.BLACK -> colour = CellColour.RED;
+            case CellColour.RED -> colour = CellColour.WHITE;
         }
         return colour;
     }
 
-    public void setColour(String value){
-        colour = value;
-    }
-
-    public String colour() {
+    public CellColour colour() {
         return colour;
     }
 

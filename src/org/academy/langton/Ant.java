@@ -34,10 +34,10 @@ public class Ant {
     }
 
     public void update() {
-        Cell currentCell = ground.cellAt(gridPosition.x(), gridPosition.y());
-        if (currentCell.colour().equals("black")) {
+        Cell currentCell = ground.cellAt(gridPosition);
+        if (currentCell.colour().equals(CellColour.BLACK)) {
             turnCounterclockwise();
-        } else if(currentCell.colour().equals("white")) {
+        } else if(currentCell.colour().equals(CellColour.WHITE)) {
             turnClockwise();
         }
         currentCell.toggleColour();
