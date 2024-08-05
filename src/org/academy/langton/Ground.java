@@ -66,9 +66,14 @@ public class Ground {
         applet.stroke(100);
         for (List<Cell> rowOfCells : rowsOfCells) {
             for (Cell cell : rowOfCells) {
-                applet.fill(cell.isActive() ? 40 : 255);
-                Ground.drawSquareAtGridPosition(
-                        cell.gridPosition(), applet, cellSize);
+                if (cell.colour().equals("white")) {
+                    applet.fill(255);
+                } else if (cell.colour().equals("black")) {
+                    applet.fill(0);
+                } else if (cell.colour().equals("red")) {
+                    applet.fill(255, 0, 0);
+                }
+                Ground.drawSquareAtGridPosition(cell.gridPosition(), applet, cellSize);
             }
         }
     }

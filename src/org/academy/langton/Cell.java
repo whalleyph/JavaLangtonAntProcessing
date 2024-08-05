@@ -1,25 +1,29 @@
 package org.academy.langton;
 
 public class Cell {
-    private boolean isActive;
+    private String colour;
     private final GridPosition gridPosition;
 
     public Cell(int x, int y){
         gridPosition = new GridPosition(x, y);
-        isActive = false;
+        colour = "white";
     }
 
-    public boolean toggleActive(){
-        isActive = !isActive;
-        return isActive;
+    public String toggleColour(){
+        switch (colour) {
+            case "white" -> colour = "black";
+            case "black" -> colour = "red";
+            case "red" -> colour = "white";
+        }
+        return colour;
     }
 
-    public void setActive(boolean value){
-        isActive = value;
+    public void setColour(String value){
+        colour = value;
     }
 
-    public boolean isActive() {
-        return isActive;
+    public String colour() {
+        return colour;
     }
 
     public GridPosition gridPosition(){
